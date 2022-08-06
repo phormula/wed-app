@@ -2,7 +2,6 @@
 404.html
 apple-icon.png
 index.html
-*.map
 /assets/img/*.png
 /assets/img/*.jpg
 /assets/img/*.svg

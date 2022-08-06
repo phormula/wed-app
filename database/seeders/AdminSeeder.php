@@ -2,20 +2,20 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // $this->call(RoleSeeder::class);
-        $this->call(AdminSeeder::class);
-        // $this->call(AdminSeeder2::class);
+        User::find(1)->first()->assignRole('super-admin');
+        User::where('id', '=', 2)->first()->assignRole('admin');
     }
 }

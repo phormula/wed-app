@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthUserController;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +23,14 @@ Route::fallback(function () {
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/ccc', function () {
-        return response()->json(['sanctum']);
+    Route::get('/users', function () {
+        return User::with('roles')->get();
     });
-});
-Route::get('/user', function (Request $request) {
-    return ['test'];
+    Route::get('/users/count', function () {
+        return (object)["count" => User::all()->count()];
+    });
+    Route::get('/user', [AuthUserController::class, 'index']);
+    Route::get('/roles', function (Request $request) {
+        return Role::all()->pluck('name');
+    });
 });
