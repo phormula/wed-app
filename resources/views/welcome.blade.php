@@ -7,10 +7,10 @@
 
   <title>Wedding Booking App</title>
 
-  <link href="{{ asset('build/bundle.css') }}" rel="stylesheet" />
+  <link href="{{ asset('svelte-build/bundle.css') }}" rel="stylesheet" />
 
   <!-- <link href="http://localhost:3000/build/bundle.css" rel="stylesheet"> -->
-  <script src="{{ asset('build/bundle.js') }}" defer></script>
+  <script src="{{ asset('svelte-build/bundle.js') }}" defer></script>
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
